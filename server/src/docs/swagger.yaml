@@ -1,0 +1,540 @@
+openapi: 3.0.3
+info:
+  title: Task Management API Specification
+  description: API documentation for the Task Management bounded context.
+servers:
+  - url: /api/v1
+    description: Development Server
+tags:
+  - name: TaskManagement
+    description: Operations related to the TaskManagement bounded context.
+paths:
+  /archive-list:
+    post:
+      summary: Archive List
+      description: Executes the "Archive List" command. ...
+      operationId: archiveList
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/List'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveListRequest'
+  /complete-task:
+    post:
+      summary: Complete Task
+      description: Executes the "Complete Task" command. ...
+      operationId: completeTask
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompleteTaskRequest'
+  /create-list:
+    post:
+      summary: Create List
+      description: Executes the "Create List" command. ...
+      operationId: createList
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/List'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateListRequest'
+  /create-task:
+    post:
+      summary: Create Task
+      description: Executes the "Create Task" command. ...
+      operationId: createTask
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTaskRequest'
+  /delete-list:
+    post:
+      summary: Delete List
+      description: Executes the "Delete List" command. ...
+      operationId: deleteList
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/List'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteListRequest'
+  /delete-task:
+    post:
+      summary: Delete Task
+      description: Executes the "Delete Task" command. ...
+      operationId: deleteTask
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteTaskRequest'
+  /move-task:
+    post:
+      summary: Move Task
+      description: Executes the "Move Task" command. ...
+      operationId: moveTask
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveTaskRequest'
+  /rename-list:
+    post:
+      summary: Rename List
+      description: Executes the "Rename List" command. ...
+      operationId: renameList
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/List'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RenameListRequest'
+  /reopen-task:
+    post:
+      summary: Reopen Task
+      description: Executes the "Reopen Task" command. ...
+      operationId: reopenTask
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReopenTaskRequest'
+  /set-task-due-date:
+    post:
+      summary: Set Task Due Date
+      description: Executes the "Set Task Due Date" command. ...
+      operationId: setTaskDueDate
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetTaskDueDateRequest'
+  /set-task-priority:
+    post:
+      summary: Set Task Priority
+      description: Executes the "Set Task Priority" command. ...
+      operationId: setTaskPriority
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetTaskPriorityRequest'
+  /share-list:
+    post:
+      summary: Share List
+      description: Executes the "Share List" command. ...
+      operationId: shareList
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/List'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShareListRequest'
+  /update-task:
+    post:
+      summary: Update Task
+      description: Executes the "Update Task" command. ...
+      operationId: updateTask
+      tags:
+        - TaskManagement
+      responses:
+        '200':
+          description: 'OK: The resource was updated successfully.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTaskRequest'
+components:
+  schemas:
+    ArchiveListRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: lst_001
+      required:
+        - id
+    CompleteTaskRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: tsk_001
+      required:
+        - id
+    CreateListRequest:
+      type: object
+      properties:
+        listName:
+          type: string
+          example: Personal
+      required:
+        - listName
+    CreateTaskRequest:
+      type: object
+      properties:
+        listId:
+          type: string
+          example: lst_001
+        taskTitle:
+          type: string
+          example: Buy milk
+      required:
+        - listId
+        - taskTitle
+    DeleteListRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: lst_001
+      required:
+        - id
+    DeleteTaskRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: tsk_001
+      required:
+        - id
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: An error occurred.
+    List:
+      type: object
+      description: Represents a List in the system.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the List (primary key).
+          example: lst_001
+        listName:
+          type: string
+          description: The listName of the List.
+          example: Personal
+        createdAt:
+          type: string
+          description: The createdAt of the List.
+          example: 2025-02-01T10:00Z
+        archivedAt:
+          type: string
+          description: The archivedAt of the List.
+          example: 2025-03-01T08:00Z
+        isArchived:
+          type: string
+          description: The isArchived of the List.
+          example: 'false'
+      required:
+        - id
+        - listName
+    MoveTaskRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: tsk_001
+        listId:
+          type: string
+          example: lst_001
+      required:
+        - id
+        - listId
+    RenameListRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: lst_001
+        listName:
+          type: string
+          example: Personal
+      required:
+        - id
+        - listName
+    ReopenTaskRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: tsk_001
+        reopenReason:
+          type: string
+          example: Missing info
+      required:
+        - id
+    SetTaskDueDateRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: tsk_001
+        dueDate:
+          type: string
+          example: '2025-03-01'
+      required:
+        - id
+    SetTaskPriorityRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: tsk_001
+        priority:
+          type: string
+          example: Low
+      required:
+        - id
+    ShareListRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: lst_001
+        collaboratorUserIds:
+          type: string
+        permissionLevel:
+          type: string
+        notifyCollaborators:
+          type: string
+      required:
+        - id
+    Task:
+      type: object
+      description: Represents a Task in the system.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the Task (primary key).
+          example: tsk_001
+        listId:
+          type: string
+          description: The listId of the Task.
+          example: lst_001
+        taskTitle:
+          type: string
+          description: The taskTitle of the Task.
+          example: Buy milk
+        taskDescription:
+          type: string
+          description: The taskDescription of the Task.
+          example: 2% milk from store
+        priority:
+          type: string
+          description: The priority of the Task.
+          example: Low
+        dueDate:
+          type: string
+          description: The dueDate of the Task.
+          example: '2025-03-01'
+        reopenReason:
+          type: string
+          description: The reopenReason of the Task.
+          example: Missing info
+      required:
+        - id
+        - listId
+        - taskTitle
+    UpdateTaskRequest:
+      type: object
+      properties:
+        id:
+          type: string
+          example: tsk_001
+        taskTitle:
+          type: string
+          example: Buy milk
+        taskDescription:
+          type: string
+          example: 2% milk from store
+      required:
+        - id
+        - taskTitle
+  parameters:
+    ListId:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier for the List.
+      schema:
+        type: string
+    TaskId:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier for the Task.
+      schema:
+        type: string
+  responses:
+    BadRequest:
+      description: 'Bad Request: The server cannot or will not process the request due to something that is perceived to be a client error.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InternalServerError:
+      description: 'Internal Server Error: The server has encountered a situation it doesn''t know how to handle.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: 'Not Found: The server can not find the requested resource.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
